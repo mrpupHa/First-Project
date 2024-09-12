@@ -12,8 +12,11 @@ const port = 3000;
 app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname,"public/")));
 
+app.set("views", "./src/views");
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
-    res.send("Hello");
+    res.render("index");
 
 })
 
